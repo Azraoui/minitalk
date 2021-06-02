@@ -6,21 +6,21 @@
 /*   By: ael-azra <ael-azra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 12:29:04 by ael-azra          #+#    #+#             */
-/*   Updated: 2021/06/02 17:17:09 by ael-azra         ###   ########.fr       */
+/*   Updated: 2021/06/02 20:57:36 by ael-azra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/minitalk.h"
+#include "../../header/minitalk.h"
 
-void	talktome_0(int nb)
+void	binary_0(int nb)
 {
-	write(1, "Hello World 0\n", 15);
-	printf("nb == %d\n", nb);
+	write(1, "0\n", 1);
+	// printf("nb == %d\n", nb);
 }
-void	talktome_1(int nb)
+void	binary_1(int nb)
 {
-	write(1, "Hello World 1\n", 15);
-	printf("nb == %d\n", nb);
+	write(1, "1\n", 1);
+	// printf("nb == %d\n", nb);
 }
 
 int main()
@@ -29,20 +29,16 @@ int main()
 	pid_t	pid;
 	int		i;
 
-	sigemptyset(&sact.sa_mask);
-	sact.sa_flags = 1;
-	sact.__sigaction_u.__sa_handler = talktome_1;
-	sigaction(SIGUSR2, &sact, NULL);
+	// sigemptyset(&sact.sa_mask);
+	// sact.sa_flags = 1;
+	// sact.__sigaction_u.__sa_handler = binary_1;
+	// sigaction(SIGUSR2, &sact, NULL);
 	// sigaction(SIGUSR1, &sact, NULL);
 	pid = getpid();
 	i = 0;
-	// signal(SIGUSR1, talktome_0);
-	// signal(SIGUSR2, talktome_1);
+	signal(SIGUSR1, binary_0);
+	signal(SIGUSR2, binary_1);
 	printf("Server PID: %d\n", pid);
-	while (1)
-	{
-		printf("i = %d\n", i++);
-		sleep(2);
-	}
+	while (1){}
 	return (0);
 }

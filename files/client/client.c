@@ -6,11 +6,11 @@
 /*   By: ael-azra <ael-azra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 12:57:12 by ael-azra          #+#    #+#             */
-/*   Updated: 2021/06/02 20:10:27 by ael-azra         ###   ########.fr       */
+/*   Updated: 2021/06/02 20:47:26 by ael-azra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/minitalk.h"
+#include "../../header/minitalk.h"
 
 int main(int ac, char **av)
 {

@@ -6,7 +6,7 @@
 /*   By: ael-azra <ael-azra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 18:27:27 by ael-azra          #+#    #+#             */
-/*   Updated: 2021/06/02 20:22:54 by ael-azra         ###   ########.fr       */
+/*   Updated: 2021/06/02 21:01:48 by ael-azra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	*chartobin(char c)
 		j++;
 		i--;
 	}
+	return (arr);
 }
 
 void	strtobin(int server_pid, int client_pid, char *str)
@@ -39,8 +40,9 @@ void	strtobin(int server_pid, int client_pid, char *str)
 	int	j;
 	int	i;
 
-	len = ft_strlen(server_pid);
+	len = ft_strlen(str);
 	i = 0;
+	printf("len == %d\n", len);
 	while (str[i] && i < len)
 	{
 		j = 0;
@@ -48,6 +50,7 @@ void	strtobin(int server_pid, int client_pid, char *str)
 		while (j < 8)
 		{
 			kill(server_pid, arr[j]);
+			printf("%d\n", arr[j]);
 			j++;
 		}
 		free(arr);
