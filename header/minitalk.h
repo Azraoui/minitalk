@@ -6,7 +6,7 @@
 /*   By: ael-azra <ael-azra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 13:05:02 by ael-azra          #+#    #+#             */
-/*   Updated: 2021/06/02 17:28:44 by ael-azra         ###   ########.fr       */
+/*   Updated: 2021/06/02 20:10:48 by ael-azra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@
 #include <signal.h>
 #include <stdio.h>
 #include "../src/libftt/libft.h"
+
+void	strtobin(int server_pid, int client_pid, char *str);
 
 #endif
