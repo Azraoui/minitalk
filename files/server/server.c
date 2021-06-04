@@ -6,7 +6,7 @@
 /*   By: ael-azra <ael-azra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 12:29:04 by ael-azra          #+#    #+#             */
-/*   Updated: 2021/06/04 20:04:38 by ael-azra         ###   ########.fr       */
+/*   Updated: 2021/06/04 21:16:23 by ael-azra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ void	bintoint(int nb)
 	static char *str;
 
 	if (!str)
-		str = ft_strdup("\0");
+		str = ft_strdup("");
 	if (nb == 30)
 		str = ft_strjoin(str, "0\0");
 	else if (nb == 31)
 		str = ft_strjoin(str, "1\0");
-	if (ft_strlen(str) > 7)
+	if (ft_strlen(str) == 8)
 	{
 		// printf("%s\n", str);
 		ft_putchar_fd(ft_convert(str), 1);
 		// ft_putchar_fd('\n', 1);
-		usleep(1);
+		// usleep(1);
 		free(str);
 		str = NULL;
 	}
@@ -56,7 +56,7 @@ void	bintoint(int nb)
 
 int main()
 {
-	struct sigaction sact;
+	// struct sigaction sact;
 	pid_t	pid;
 	
 	// sigemptyset(&sact.sa_mask);
@@ -69,6 +69,8 @@ int main()
 	signal(SIGUSR1, bintoint);
 	signal(SIGUSR2, bintoint);
 	printf("Server PID: %d\n", pid);
-	while (1){}
+	while (1){
+		pause();
+	}
 	return (0);
 }
