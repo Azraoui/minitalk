@@ -6,7 +6,7 @@
 /*   By: ael-azra <ael-azra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 18:27:27 by ael-azra          #+#    #+#             */
-/*   Updated: 2021/06/02 21:01:48 by ael-azra         ###   ########.fr       */
+/*   Updated: 2021/06/04 20:03:15 by ael-azra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,11 @@ void	strtobin(int server_pid, int client_pid, char *str)
 		while (j < 8)
 		{
 			kill(server_pid, arr[j]);
-			printf("%d\n", arr[j]);
+			// printf("%d", arr[j]);
+			usleep(10);
 			j++;
 		}
+		usleep(1);
 		free(arr);
 		i++;
 	}
