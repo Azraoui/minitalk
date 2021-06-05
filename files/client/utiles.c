@@ -20,6 +20,8 @@ int	*chartobin(char c)
 
 	i = 7;
 	arr = (int *)malloc(sizeof(int) * 8);
+	if (!arr)
+		exit(1);
 	j = 0;
 	while (i >= 0 && j < 8)
 	{

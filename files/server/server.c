@@ -36,6 +36,7 @@ int		ft_convert(char *str)
 void	bintoint(int nb)
 {
 	static char *str;
+
 	if (str == NULL)
 		str = ft_strdup("");
 	if (str && nb == SIGUSR1)
