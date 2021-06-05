@@ -35,9 +35,9 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		ft_putstrr_fd("	-The Message to the server.\n", 1);_fd("The client will take as parameters:\n", 1);
+		ft_putstr_fd("The client will take as parameters:\n", 1);
 		ft_putstr_fd("	-The Server PID.\n", 1);
-		ft_putst
+		ft_putstr_fd("	-The Message to the server.\n", 1);
 	}
 	return (0);
 }
