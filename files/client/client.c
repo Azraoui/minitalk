@@ -18,16 +18,26 @@ int	main(int ac, char **av)
 	pid_t	server_pid;
 	char	*client_msg;
 	char	*str_pid;
+	int		i;
 
 	if (ac > 2)
 	{
-		client_pid = getpid();
-		str_pid = ft_itoa(client_pid);
-		ft_putstr_fd(str_pid, 1);
-		ft_putchar_fd('\n', 1);
+		i = 2;
+		// client_pid = getpid();
+		// str_pid = ft_itoa(client_pid);
 		server_pid = ft_atoi(av[1]);
-		strtobin(server_pid, client_pid, str_pid);
-		strtobin(server_pid, client_pid, av[2]);
+		while (i < ac)
+		{
+			strtobin(server_pid, av[i++]);
+			strtobin(server_pid, " \0");
+		}
+		strtobin(server_pid, "\n\0");
+	}
+	else
+	{
+		ft_putstrr_fd("	-The Message to the server.\n", 1);_fd("The client will take as parameters:\n", 1);
+		ft_putstr_fd("	-The Server PID.\n", 1);
+		ft_putst
 	}
 	return (0);
 }

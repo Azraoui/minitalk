@@ -24,16 +24,16 @@ int	*chartobin(char c)
 	while (i >= 0 && j < 8)
 	{
 		if (c & (1 << i))
-			arr[j] = 31; // 1
+			arr[j] = SIGUSR2; // 1
 		else
-			arr[j] = 30; // 0
+			arr[j] = SIGUSR1; // 0
 		j++;
 		i--;
 	}
 	return (arr);
 }
 
-void	strtobin(int server_pid, int client_pid, char *str)
+void	strtobin(int server_pid, char *str)
 {
 	int	len;
 	int	*arr;
@@ -42,7 +42,6 @@ void	strtobin(int server_pid, int client_pid, char *str)
 
 	len = ft_strlen(str);
 	i = 0;
-	printf("len == %d\n", len);
 	while (str[i] && i < len)
 	{
 		j = 0;
@@ -50,11 +49,9 @@ void	strtobin(int server_pid, int client_pid, char *str)
 		while (j < 8)
 		{
 			kill(server_pid, arr[j]);
-			// printf("%d", arr[j]);
-			usleep(10);
+			usleep(100);
 			j++;
 		}
-		usleep(1);
 		free(arr);
 		i++;
 	}

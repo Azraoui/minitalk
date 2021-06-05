@@ -36,19 +36,15 @@ int		ft_convert(char *str)
 void	bintoint(int nb)
 {
 	static char *str;
-
-	if (!str)
+	if (str == NULL)
 		str = ft_strdup("");
-	if (nb == 30)
+	if (str && nb == SIGUSR1)
 		str = ft_strjoin(str, "0\0");
-	else if (nb == 31)
+	else if (str && nb == SIGUSR2)
 		str = ft_strjoin(str, "1\0");
-	if (ft_strlen(str) == 8)
+	if (str && ft_strlen(str) == 8)
 	{
-		// printf("%s\n", str);
 		ft_putchar_fd(ft_convert(str), 1);
-		// ft_putchar_fd('\n', 1);
-		// usleep(1);
 		free(str);
 		str = NULL;
 	}
@@ -56,21 +52,15 @@ void	bintoint(int nb)
 
 int main()
 {
-	// struct sigaction sact;
 	pid_t	pid;
-	
-	// sigemptyset(&sact.sa_mask);
-	// sact.sa_flags = 1;
-	// sact.__sigaction_u.__sa_handler = binary_1;
-	//sigaction(SIGUSR2, &sact, NULL);
-	// sigaction(SIGUSR1, &sact, NULL);
-	
+
 	pid = getpid();
 	signal(SIGUSR1, bintoint);
 	signal(SIGUSR2, bintoint);
-	printf("Server PID: %d\n", pid);
-	while (1){
+	ft_putstr_fd("Server PID: ", 1);
+	ft_putnbr_fd(pid, 1);
+	ft_putchar_fd('\n', 1);
+	while (1)
 		pause();
-	}
 	return (0);
 }

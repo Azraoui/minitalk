@@ -19,6 +19,6 @@
 #include <stdio.h>
 #include "../src/libftt/libft.h"
 
-void	strtobin(int server_pid, int client_pid, char *str);
+void	strtobin(int server_pid, char *str);
 
 #endif
